@@ -22,15 +22,13 @@ const TodoApp = () => {
     }
 
     React.useEffect(() => {
-        if (localStorage.getItem('verdi_todo')) {
+        if (localStorage.getItem('verdi_todo') && localStorage.getItem('verdi_todo') != '[]') {
             setList(JSON.parse(localStorage.getItem('verdi_todo')));
         };
     }, []);
 
     React.useEffect(() => {
-        if(list.length > 0){
-            localStorage.setItem('verdi_todo', JSON.stringify(list));
-        }
+        localStorage.setItem('verdi_todo', JSON.stringify(list));
     }, [list]);
 
     return (
